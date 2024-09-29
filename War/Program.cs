@@ -20,10 +20,10 @@ namespace War
             }
 
             if(platoonRed.Count == 0)
-                Console.WriteLine($"{platoonRed.Name} is Dead!");
+                Console.WriteLine($"{platoonRed.Name} is Dead! {platoonBlue} WIN");
 
             if (platoonBlue.Count == 0)
-                Console.WriteLine($"{platoonBlue.Name} is Dead!");
+                Console.WriteLine($"{platoonBlue.Name} is Dead! {platoonRed} WIN");
         }
     }      
 }
