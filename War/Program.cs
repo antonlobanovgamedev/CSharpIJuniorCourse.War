@@ -1,5 +1,4 @@
-﻿
-namespace War
+﻿namespace War
 {
     internal class Program
     {
@@ -8,9 +7,4 @@ namespace War
             
         }
     }      
-
-    internal class Infantryman : Soldier
-    {
-        public Infantryman(int health, int damage, int armor) : base(100, 15, 6) { }               
-    }
 }
