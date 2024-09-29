@@ -30,8 +30,6 @@
 
             foreach (Soldier enemy in enemies)
                 enemy.TakeDamage(Damage);
-
-            enemyPlatoon.RemoveDeadSoldiers();
         }
 
         protected int CalculateRecievedDamage(int damage)
