@@ -1,5 +1,4 @@
-﻿
-namespace War
+﻿namespace War
 {
     internal class RandomUtil
     {

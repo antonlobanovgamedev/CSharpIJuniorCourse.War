@@ -1,11 +1,11 @@
 ﻿namespace War
 {
-    internal class Soldier
+    internal class SoldierOne
     {
         protected int Damage;
         protected int Armor;
 
-        public Soldier()
+        public SoldierOne()
         {
             Health = 100;
             Damage = 15;
@@ -14,7 +14,7 @@
 
         public int Health { get; private set; }
 
-        public bool IsAlive => 
+        public bool IsAlive =>
             Health > 0;
 
         public void TakeDamage(int damage)
@@ -24,11 +24,11 @@
             DecreaseHealth(receivedDamage);
         }
 
-        public void AttackPlatoon(Platoon enemyPlatoon)
+        public virtual void AttackPlatoon(Platoon enemyPlatoon)
         {
-            List<Soldier> enemies = GetEnemies(enemyPlatoon);
+            List<SoldierOne> enemies = GetEnemies(enemyPlatoon);
 
-            foreach (Soldier enemy in enemies)
+            foreach (SoldierOne enemy in enemies)
                 enemy.TakeDamage(Damage);
         }
 
@@ -44,7 +44,7 @@
 
         protected void DecreaseHealth(int value)
         {
-            if (value <= 0) 
+            if (value <= 0)
                 return;
 
             if (value > Health)
@@ -53,23 +53,23 @@
                 Health -= value;
         }
 
-        protected List<Soldier> GetEnemies(Platoon enemiesPlatoon)
+        protected List<SoldierOne> GetEnemies(Platoon enemiesPlatoon)
         {
-            List<Soldier> enemies = new();
-            int[] enemiesIndexes = GetEnemiesIndexes(enemiesPlatoon);
+            List<SoldierOne> enemies = new();
+            List<int> enemiesIndexes = GetEnemiesIndexes(enemiesPlatoon);
 
-            foreach(int index in enemiesIndexes)
+            foreach (int index in enemiesIndexes)
             {
                 enemies.Add(enemiesPlatoon.GetSoldier(index));
             }
-            
+
             return enemies;
         }
 
-        protected virtual int[] GetEnemiesIndexes(Platoon enemiesPlatoon)
+        protected virtual List<int> GetEnemiesIndexes(Platoon enemiesPlatoon)
         {
-            int[] enemiesIndexes = { RandomUtil.GenerateInt(0, enemiesPlatoon.Count) };
-            
+            List<int> enemiesIndexes = new List<int>() { RandomUtil.GenerateInt(0, enemiesPlatoon.Count) };
+
             return enemiesIndexes;
         }
     }

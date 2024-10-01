@@ -1,13 +1,13 @@
-﻿using System.Runtime.Versioning;
-
-namespace War
+﻿namespace War
 {
     internal class Program
     {
         static void Main(string[] args)
         {
-            Platoon platoonRed = new Platoon("RED", 1);
-            Platoon platoonBlue = new Platoon("BLUE", 16);
+            Platoon platoonRed = new Platoon("RED");
+            Platoon platoonBlue = new Platoon("BLUE");
+
+            WriteInfo(platoonRed, platoonBlue);
 
             while (platoonRed.Count > 0 && platoonBlue.Count > 0)
             {
@@ -17,13 +17,20 @@ namespace War
                     break;
 
                 platoonBlue.Attack(platoonRed);
+
+                WriteInfo(platoonRed, platoonBlue);
             }
 
             if(platoonRed.Count == 0)
-                Console.WriteLine($"{platoonRed.Name} is Dead! {platoonBlue} WIN");
+                Console.WriteLine($"{platoonRed.Name} is Dead! {platoonBlue.Name} WIN");
 
             if (platoonBlue.Count == 0)
-                Console.WriteLine($"{platoonBlue.Name} is Dead! {platoonRed} WIN");
+                Console.WriteLine($"{platoonBlue.Name} is Dead! {platoonRed.Name} WIN");
+        }
+
+        static void WriteInfo(Platoon platoonOne, Platoon platoonTwo)
+        {
+            Console.WriteLine($"{platoonOne.Name} : {platoonOne.Count} - {platoonTwo.Name} : {platoonTwo.Count}");
         }
     }      
 }
