@@ -2,7 +2,7 @@
 {
     internal class Platoon
     {
-        private List<SoldierOne> _soldiers;
+        private List<Soldier> _soldiers;
 
         public Platoon(string name, int soldierOne, int soldierTwo, int soldierThree, int soldierFour)
         {
@@ -22,6 +22,10 @@
             {
                 switch (soldier)
                 {
+                    case SoldierOne soldierOne:
+                        soldierOne.Attack(enemyPlatoon.GetRandomSoldier());
+                        break;
+
                     case SoldierTwo soldierTwo:
                         soldierTwo.Attack(enemyPlatoon.GetRandomSoldier());
                         break;
@@ -37,16 +41,16 @@
             }
         }
 
-        public SoldierOne GetRandomSoldier()
+        public Soldier GetRandomSoldier()
         {
             int randomIndex = RandomUtil.GenerateInt(0, _soldiers.Count);
 
             return _soldiers[randomIndex];
         }
 
-        public List<SoldierOne> GetRandomSoldiers(int count)
+        public List<Soldier> GetRandomSoldiers(int count)
         {
-            List<SoldierOne> soldiers = new List<SoldierOne>();
+            List<Soldier> soldiers = new List<Soldier>();
 
             for (int i = 0; i < count; i++)
             {
@@ -56,9 +60,9 @@
             return soldiers;
         }
 
-        public List<SoldierOne> GetUniqueRandomSoldiers(int count)
+        public List<Soldier> GetUniqueRandomSoldiers(int count)
         {
-            List<SoldierOne> soldiers = new List<SoldierOne>();
+            List<Soldier> soldiers = new List<Soldier>();
 
             if(count >= _soldiers.Count)
             {
@@ -88,9 +92,9 @@
             return index >= 0 && index < _soldiers.Count;
         }
 
-        private List<SoldierOne> GenerateSoldier(int soldierOne, int soldierTwo, int soldierThree, int soldierFour)
+        private List<Soldier> GenerateSoldier(int soldierOne, int soldierTwo, int soldierThree, int soldierFour)
         {
-            var soldiers = new List<SoldierOne>();
+            var soldiers = new List<Soldier>();
 
             for (int i = 0; i < soldierOne; i++)
                 soldiers.Add(new SoldierOne());

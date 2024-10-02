@@ -1,11 +1,11 @@
 ﻿namespace War
 {
-    internal class SoldierOne
+    internal abstract class Soldier
     {
         protected int Damage;
         protected int Armor;
 
-        public SoldierOne()
+        public Soldier()
         {
             Health = 100;
             Damage = 15;
@@ -17,8 +17,13 @@
         public bool IsAlive =>
             Health > 0;
 
-        public virtual void Attack(SoldierOne enemy) =>
+        public virtual void Attack(Soldier enemy)
+        {
             enemy.TakeDamage(Damage);
+
+            Console.Write("@");
+        }
+            
 
         public void TakeDamage(int damage)
         {
@@ -48,4 +53,6 @@
                 Health -= value;
         }
     }
+
+    internal class SoldierOne : Soldier { }
 }

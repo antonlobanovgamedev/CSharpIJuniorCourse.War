@@ -1,6 +1,6 @@
 ﻿namespace War
 {
-    internal class SoldierTwo : SoldierOne
+    internal class SoldierTwo : Soldier
     {
         private int _damageMultiplier;
 
@@ -9,7 +9,7 @@
             _damageMultiplier = 2;
         }
 
-        public override void Attack(SoldierOne enemy) =>
+        public override void Attack(Soldier enemy) =>
             enemy.TakeDamage(Damage * _damageMultiplier);
     }
 }

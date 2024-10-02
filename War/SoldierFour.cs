@@ -1,6 +1,6 @@
 ﻿namespace War
 {
-    internal class SoldierFour : SoldierOne
+    internal class SoldierFour : Soldier
     {
         public SoldierFour() : base()
         {
@@ -9,9 +9,9 @@
 
         public int EnemiesCountByAttack;
 
-        public void Attack(List<SoldierOne> soldiers)
+        public void Attack(List<Soldier> soldiers)
         {
-            foreach (SoldierOne soldier in soldiers)
+            foreach (Soldier soldier in soldiers)
                 soldier.TakeDamage(Damage);
         }
     }
