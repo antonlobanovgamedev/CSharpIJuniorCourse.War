@@ -49,16 +49,16 @@
             var soldiers = new List<SoldierOne>();
 
             for (int i = 0; i < soldierOne; i++)
-                _soldiers.Add(new SoldierOne());
+                soldiers.Add(new SoldierOne());
 
             for (int i = 0; i < soldierTwo; i++)
-                _soldiers.Add(new SoldierTwo());
+                soldiers.Add(new SoldierTwo());
 
             for (int i = 0; i < soldierThree; i++)
-                _soldiers.Add(new SoldierThree());
+                soldiers.Add(new SoldierThree());
 
             for (int i = 0; i < soldierFour; i++)
-                _soldiers.Add(new SoldierFour());
+                soldiers.Add(new SoldierFour());
 
             return soldiers;
         }
