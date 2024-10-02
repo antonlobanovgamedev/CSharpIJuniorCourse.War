@@ -49,6 +49,4 @@
                 Health -= value;
         }
     }
-
-    internal class SoldierOne : Soldier { }
 }
