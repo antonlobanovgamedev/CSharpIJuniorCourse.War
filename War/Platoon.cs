@@ -4,9 +4,9 @@
     {
         private List<SoldierOne> _soldiers;
 
-        public Platoon(string name)
+        public Platoon(string name, int soldierOne, int soldierTwo, int soldierThree, int soldierFour)
         {
-            _soldiers = GenerateSoldier();
+            _soldiers = GenerateSoldier(soldierOne, soldierTwo, soldierThree, soldierFour);
 
             Name = name;
         }
@@ -47,28 +47,21 @@
             return index >= 0 && index < _soldiers.Count;
         }
 
-        private List<SoldierOne> GenerateSoldier()
+        private List<SoldierOne> GenerateSoldier(int soldierOne, int soldierTwo, int soldierThree, int soldierFour)
         {
-            var soldiers = new List<SoldierOne>()
-            {
-                new SoldierOne(),
-                new SoldierOne(),
-                new SoldierOne(),
-                new SoldierOne(),
+            var soldiers = new List<SoldierOne>();
 
-                new SoldierTwo(),
-                new SoldierTwo(),
-                new SoldierTwo(),
-                new SoldierTwo(),
+            for (int i = 0; i < soldierOne; i++)
+                _soldiers.Add(new SoldierOne());
 
-                new SoldierThree(),
-                new SoldierThree(),
-                new SoldierThree(),
+            for (int i = 0; i < soldierTwo; i++)
+                _soldiers.Add(new SoldierTwo());
 
-                new SoldierFour(),
-                new SoldierFour(),
-                new SoldierFour(),
-            };
+            for (int i = 0; i < soldierThree; i++)
+                _soldiers.Add(new SoldierThree());
+
+            for (int i = 0; i < soldierFour; i++)
+                _soldiers.Add(new SoldierFour());
 
             return soldiers;
         }
