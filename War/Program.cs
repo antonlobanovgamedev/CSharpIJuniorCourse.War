@@ -12,13 +12,11 @@
             while (platoonRed.Count > 0 && platoonBlue.Count > 0)
             {
                 platoonRed.Attack(platoonBlue);
-                platoonBlue.RemoveDeadSoldiers();
 
                 if (platoonBlue.Count == 0)
                     break;
 
                 platoonBlue.Attack(platoonRed);
-                platoonRed.RemoveDeadSoldiers();
 
                 WriteInfo(platoonRed, platoonBlue);
             }

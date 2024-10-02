@@ -39,6 +39,8 @@
                         break;
                 }
             }
+
+            enemyPlatoon.RemoveDeadSoldiers();
         }
 
         public Soldier GetRandomSoldier()
