@@ -17,12 +17,8 @@
         public bool IsAlive =>
             Health > 0;
 
-        public virtual void Attack(Soldier enemy)
-        {
+        public virtual void Attack(Soldier enemy) =>
             enemy.TakeDamage(Damage);
-
-            Console.Write("@");
-        }
             
 
         public void TakeDamage(int damage)
