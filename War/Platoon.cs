@@ -28,10 +28,7 @@
 
         public void RemoveDeadSoldiers()
         {
-            var deadSoldiers = 
-                _soldiers.Where(soldier => soldier.IsAlive == false);
-
-            _soldiers = _soldiers.Except(deadSoldiers).ToList();
+            _soldiers = _soldiers.Where(soldier => soldier.IsAlive).ToList();
         }
 
         public SoldierOne GetSoldier(int index)
