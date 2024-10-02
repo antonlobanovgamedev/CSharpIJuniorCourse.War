@@ -4,8 +4,8 @@
     {
         static void Main(string[] args)
         {
-            Platoon platoonRed = new Platoon("RED");
-            Platoon platoonBlue = new Platoon("BLUE");
+            Platoon platoonRed = new Platoon("RED", 4, 4, 5, 2);
+            Platoon platoonBlue = new Platoon("BLUE", 3, 5, 2, 5);
 
             WriteInfo(platoonRed, platoonBlue);
 
