@@ -9,12 +9,7 @@
             _damageMultiplier = 2;
         }
 
-        public override void AttackPlatoon(Platoon enemyPlatoon)
-        {
-            List<SoldierOne> enemies = GetEnemies(enemyPlatoon);
-
-            foreach (SoldierOne enemy in enemies)
-                enemy.TakeDamage(Damage * _damageMultiplier);
-        }
+        public override void Attack(SoldierOne enemy) =>
+            enemy.TakeDamage(Damage * _damageMultiplier);
     }
 }

@@ -2,25 +2,17 @@
 {
     internal class SoldierFour : SoldierOne
     {
-        private int _enemiesCountByAttack;
-
         public SoldierFour() : base()
         {
-            _enemiesCountByAttack = 5;
+            EnemiesCountByAttack = 5;
         }
 
-        protected override List<int> GetEnemiesIndexes(Platoon enemiesPlatoon)
+        public int EnemiesCountByAttack;
+
+        public void Attack(List<SoldierOne> soldiers)
         {
-            List<int> enemiesIndexes = new();
-
-            while (enemiesIndexes.Count < _enemiesCountByAttack)
-            {
-                int newIndex = RandomUtil.GenerateInt(0, enemiesPlatoon.Count);
-
-                enemiesIndexes.Add(newIndex);
-            }
-
-            return enemiesIndexes;
+            foreach (SoldierOne soldier in soldiers)
+                soldier.TakeDamage(Damage);
         }
     }
 }

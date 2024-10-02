@@ -17,19 +17,14 @@
         public bool IsAlive =>
             Health > 0;
 
+        public virtual void Attack(SoldierOne enemy) =>
+            enemy.TakeDamage(Damage);
+
         public void TakeDamage(int damage)
         {
             int receivedDamage = CalculateRecievedDamage(damage);
 
             DecreaseHealth(receivedDamage);
-        }
-
-        public virtual void AttackPlatoon(Platoon enemyPlatoon)
-        {
-            List<SoldierOne> enemies = GetEnemies(enemyPlatoon);
-
-            foreach (SoldierOne enemy in enemies)
-                enemy.TakeDamage(Damage);
         }
 
         protected int CalculateRecievedDamage(int damage)
@@ -51,26 +46,6 @@
                 Health = 0;
             else
                 Health -= value;
-        }
-
-        protected List<SoldierOne> GetEnemies(Platoon enemiesPlatoon)
-        {
-            List<SoldierOne> enemies = new();
-            List<int> enemiesIndexes = GetEnemiesIndexes(enemiesPlatoon);
-
-            foreach (int index in enemiesIndexes)
-            {
-                enemies.Add(enemiesPlatoon.GetSoldier(index));
-            }
-
-            return enemies;
-        }
-
-        protected virtual List<int> GetEnemiesIndexes(Platoon enemiesPlatoon)
-        {
-            List<int> enemiesIndexes = new List<int>() { RandomUtil.GenerateInt(0, enemiesPlatoon.Count) };
-
-            return enemiesIndexes;
         }
     }
 }
