@@ -4,9 +4,9 @@
     {
         private List<Soldier> _soldiers;
 
-        public Platoon(string name, int soldierOne, int soldierTwo, int soldierThree, int soldierFour)
+        public Platoon(string name, int soldierOneCount, int soldierTwoCount, int soldierThreeCount, int soldierFourCount)
         {
-            _soldiers = GenerateSoldier(soldierOne, soldierTwo, soldierThree, soldierFour);
+            _soldiers = GenerateSoldier(soldierOneCount, soldierTwoCount, soldierThreeCount, soldierFourCount);
 
             Name = name;
         }
@@ -16,82 +16,20 @@
         public int Count =>
             _soldiers.Count;
 
-        public void Attack(Platoon enemyPlatoon)
+        public void Attack(List<Soldier> enemies)
         {
-            foreach (var soldier in _soldiers)
-            {
-                switch (soldier)
-                {
-                    case SoldierOne soldierOne:
-                        soldierOne.Attack(enemyPlatoon.GetRandomSoldier());
-                        break;
-
-                    case SoldierTwo soldierTwo:
-                        soldierTwo.Attack(enemyPlatoon.GetRandomSoldier());
-                        break;
-
-                    case SoldierThree soldierThree:
-                        soldierThree.Attack(enemyPlatoon.GetUniqueRandomSoldiers(soldierThree.EnemiesCountByAttack));
-                        break;
-
-                    case SoldierFour soldierFour:
-                        soldierFour.Attack(enemyPlatoon.GetRandomSoldiers(soldierFour.EnemiesCountByAttack));
-                        break;
-                }
-            }
-
-            enemyPlatoon.RemoveDeadSoldiers();
+            foreach(Soldier soldier in _soldiers)
+                soldier.Attack(enemies);
         }
 
-        public Soldier GetRandomSoldier()
+        public List<Soldier> GetSoldiers()
         {
-            int randomIndex = RandomUtil.GenerateInt(0, _soldiers.Count);
-
-            return _soldiers[randomIndex];
-        }
-
-        public List<Soldier> GetRandomSoldiers(int count)
-        {
-            List<Soldier> soldiers = new List<Soldier>();
-
-            for (int i = 0; i < count; i++)
-            {
-                soldiers.Add(GetRandomSoldier());
-            }
-
-            return soldiers;
-        }
-
-        public List<Soldier> GetUniqueRandomSoldiers(int count)
-        {
-            List<Soldier> soldiers = new List<Soldier>();
-
-            if(count >= _soldiers.Count)
-            {
-                soldiers = _soldiers;
-            }
-            else
-            {
-                while (soldiers.Count < count)
-                {
-                    int newIndex = RandomUtil.GenerateInt(0, _soldiers.Count);
-
-                    if (soldiers.Contains(_soldiers[newIndex]) == false)
-                        soldiers.Add(_soldiers[newIndex]);
-                }
-            }
-
-            return soldiers;
+            return _soldiers;
         }
 
         public void RemoveDeadSoldiers()
         {
             _soldiers = _soldiers.Where(soldier => soldier.IsAlive).ToList();
-        }
-
-        private bool IsIndexCorrect(int index)
-        {
-            return index >= 0 && index < _soldiers.Count;
         }
 
         private List<Soldier> GenerateSoldier(int soldierOne, int soldierTwo, int soldierThree, int soldierFour)

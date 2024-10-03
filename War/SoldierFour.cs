@@ -2,17 +2,31 @@
 {
     internal class SoldierFour : Soldier
     {
+        private int _enemiesCountByAttack;
+
         public SoldierFour() : base()
         {
-            EnemiesCountByAttack = 5;
+            _enemiesCountByAttack = 5;
         }
 
-        public int EnemiesCountByAttack;
-
-        public void Attack(List<Soldier> soldiers)
+        public override void Attack(List<Soldier> soldiers)
         {
-            foreach (Soldier soldier in soldiers)
-                soldier.TakeDamage(Damage);
+            List<Soldier> enemies = GetRandomEnemies(soldiers, _enemiesCountByAttack);
+
+            foreach (Soldier enemy in enemies)
+                enemy.TakeDamage(Damage);
+        }
+
+        private List<Soldier> GetRandomEnemies(List<Soldier> enemies, int count)
+        {
+            List<Soldier> soldiers = new List<Soldier>();
+
+            for (int i = 0; i < count; i++)
+            {
+                soldiers.Add(GetRandomEnemy(enemies));
+            }
+
+            return soldiers;
         }
     }
 }

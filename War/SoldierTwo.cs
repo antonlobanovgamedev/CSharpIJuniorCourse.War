@@ -9,7 +9,11 @@
             _damageMultiplier = 2;
         }
 
-        public override void Attack(Soldier enemy) =>
+        public override void Attack(List<Soldier> soldiers)
+        {
+            Soldier enemy = GetRandomEnemy(soldiers);
+
             enemy.TakeDamage(Damage * _damageMultiplier);
+        }
     }
 }

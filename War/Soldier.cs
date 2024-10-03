@@ -4,6 +4,7 @@
     {
         protected int Damage;
         protected int Armor;
+        protected int Health;
 
         public Soldier()
         {
@@ -12,20 +13,24 @@
             Armor = 5;
         }
 
-        public int Health { get; private set; }
-
         public bool IsAlive =>
             Health > 0;
 
-        public virtual void Attack(Soldier enemy) =>
-            enemy.TakeDamage(Damage);
-            
+        public abstract void Attack(List<Soldier> soldiers);
+
 
         public void TakeDamage(int damage)
         {
             int receivedDamage = CalculateRecievedDamage(damage);
 
             DecreaseHealth(receivedDamage);
+        }
+
+        protected Soldier GetRandomEnemy(List<Soldier> enemies)
+        {
+            int randomIndex = RandomUtil.GenerateInt(0, enemies.Count);
+
+            return enemies[randomIndex];
         }
 
         protected int CalculateRecievedDamage(int damage)
