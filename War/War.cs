@@ -17,8 +17,8 @@
         {
             do
             {
-                _platoonRed.Attack(_platoonBlue.Soldiers);
-                _platoonBlue.Attack(_platoonRed.Soldiers);
+                _platoonRed.Attack(_platoonBlue.GetSoldiers());
+                _platoonBlue.Attack(_platoonRed.GetSoldiers());
 
                 RemoveDeadSoldiers(_platoonRed, _platoonBlue);
                 WriteFightInfo(_platoonRed, _platoonBlue);

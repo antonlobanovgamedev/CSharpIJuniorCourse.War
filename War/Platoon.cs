@@ -1,28 +1,40 @@
 ﻿namespace War
 {
     internal class Platoon
-    { 
+    {
+        private List<Soldier> _soldiers;
+
+
         public Platoon(string name, List<Soldier> soldiers)
         {
-            Soldiers = soldiers;
+            _soldiers = soldiers;
             Name = name;
         }
 
-        public List<Soldier> Soldiers { get; private set; }
         public string Name { get; }
 
         public int Count =>
-            Soldiers.Count;
+            _soldiers.Count;
 
         public void Attack(List<Soldier> enemies)
         {
-            foreach(Soldier soldier in Soldiers)
+            foreach(Soldier soldier in _soldiers)
                 soldier.Attack(enemies);
+        }
+
+        public List<Soldier> GetSoldiers()
+        {
+            List<Soldier> copiedSoldiers = new List<Soldier>();
+
+            foreach(Soldier soldier in _soldiers)
+                copiedSoldiers.Add(soldier);
+
+            return copiedSoldiers;
         }
 
         public void RemoveDeadSoldiers()
         {
-            Soldiers = Soldiers.Where(soldier => soldier.IsAlive).ToList();
+            _soldiers = _soldiers.Where(soldier => soldier.IsAlive).ToList();
         }
     }
 }
