@@ -2,28 +2,30 @@
 {
     internal class War
     {
-        private Platoon platoonRed;
-        private Platoon platoonBlue;
+        private Platoon _platoonRed;
+        private Platoon _platoonBlue;
+        private SoldierFactory _soldiersFactory;
 
         public War()
         {
-            platoonRed = new Platoon("RED", 4, 2, 5, 4);
-            platoonBlue = new Platoon("BLUE", 5, 4, 2, 5);
+            _soldiersFactory = new SoldierFactory();
+            _platoonRed = new Platoon("RED", _soldiersFactory.GenerateSoldiers());
+            _platoonBlue = new Platoon("BLUE", _soldiersFactory.GenerateSoldiers());
         }
 
         public void Fight()
         {
             do
             {
-                platoonRed.Attack(platoonBlue.GetSoldiers());
-                platoonBlue.Attack(platoonRed.GetSoldiers());
+                _platoonRed.Attack(_platoonBlue.Soldiers);
+                _platoonBlue.Attack(_platoonRed.Soldiers);
 
-                RemoveDeadSoldiers(platoonRed, platoonBlue);
-                WriteFightInfo(platoonRed, platoonBlue);
+                RemoveDeadSoldiers(_platoonRed, _platoonBlue);
+                WriteFightInfo(_platoonRed, _platoonBlue);
             }
-            while (platoonRed.Count > 0 && platoonBlue.Count > 0);
+            while (_platoonRed.Count > 0 && _platoonBlue.Count > 0);
 
-            ShowResult(platoonRed, platoonBlue);
+            ShowResult(_platoonRed, _platoonBlue);
         }
 
         private void WriteFightInfo(Platoon platoonOne, Platoon platoonTwo)
@@ -33,18 +35,18 @@
 
         private void ShowResult(Platoon platoonOne, Platoon platoonTwo)
         {
-            if(platoonRed.Count == 0 && platoonBlue.Count == 0)
+            if(_platoonRed.Count == 0 && _platoonBlue.Count == 0)
                 Console.WriteLine("There were no winners in this battle");
-            else if (platoonRed.Count == 0)
-                Console.WriteLine($"{platoonRed.Name} is Dead! {platoonBlue.Name} WIN");
-            else if (platoonBlue.Count == 0)
-                Console.WriteLine($"{platoonBlue.Name} is Dead! {platoonRed.Name} WIN");
+            else if (_platoonRed.Count == 0)
+                Console.WriteLine($"{_platoonRed.Name} is Dead! {_platoonBlue.Name} WIN");
+            else if (_platoonBlue.Count == 0)
+                Console.WriteLine($"{_platoonBlue.Name} is Dead! {_platoonRed.Name} WIN");
         }
 
         private void RemoveDeadSoldiers(Platoon platoonOne, Platoon platoonTwo)
         {
-            platoonRed.RemoveDeadSoldiers();
-            platoonBlue.RemoveDeadSoldiers();
+            _platoonRed.RemoveDeadSoldiers();
+            _platoonBlue.RemoveDeadSoldiers();
         }
     }
 }

@@ -16,8 +16,10 @@
         public bool IsAlive =>
             Health > 0;
 
-        public abstract void Attack(List<Soldier> soldiers);
 
+        public abstract Soldier Clone();
+
+        public abstract void Attack(List<Soldier> soldiers);
 
         public void TakeDamage(int damage)
         {

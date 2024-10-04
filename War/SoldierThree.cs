@@ -17,6 +17,11 @@
                 enemy.TakeDamage(Damage);
         }
 
+        public override SoldierThree Clone()
+        {
+            return new SoldierThree();
+        }
+
         private List<Soldier> GetUniqueRandomEnemies(List<Soldier> enemies, int count)
         {
             List<Soldier> soldiers = new List<Soldier>();

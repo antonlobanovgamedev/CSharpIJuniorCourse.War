@@ -9,6 +9,11 @@
             _enemiesCountByAttack = 5;
         }
 
+        public override SoldierFour Clone()
+        {
+            return new SoldierFour();
+        }
+
         public override void Attack(List<Soldier> soldiers)
         {
             List<Soldier> enemies = GetRandomEnemies(soldiers, _enemiesCountByAttack);

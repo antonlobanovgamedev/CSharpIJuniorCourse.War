@@ -15,5 +15,10 @@
 
             enemy.TakeDamage(Damage * _damageMultiplier);
         }
+
+        public override SoldierTwo Clone()
+        {
+            return new SoldierTwo();
+        }
     }
 }

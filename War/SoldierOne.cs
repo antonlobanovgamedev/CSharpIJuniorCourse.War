@@ -9,5 +9,10 @@ namespace War
 
             enemy.TakeDamage(Damage);
         }
+
+        public override SoldierOne Clone()
+        {
+            return new SoldierOne();
+        }
     }
 }
