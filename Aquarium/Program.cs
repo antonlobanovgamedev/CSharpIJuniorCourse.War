@@ -4,7 +4,9 @@
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
+            Aquarist aquarist = new Aquarist();
+
+            aquarist.Work();
         }
     }
 }
