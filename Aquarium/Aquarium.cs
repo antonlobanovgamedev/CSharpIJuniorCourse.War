@@ -3,10 +3,12 @@
     internal class Aquarium
     {
         private List<Fish> _fishes;
+        private int _maxFishesCount;
 
         public Aquarium()
         {
             _fishes = GenerateFishes();
+            _maxFishesCount = 12;
         }
 
         public int Count => _fishes.Count;
@@ -31,8 +33,11 @@
                 _fishes.RemoveAt(index);
         }
 
-        public void AddNewFish() =>
-            _fishes.Add(new Fish());
+        public void AddNewFish()
+        {
+            if(Count < _maxFishesCount)
+                _fishes.Add(new Fish());
+        }
 
         private List<Fish> GenerateFishes()
         {
