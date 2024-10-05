@@ -32,19 +32,19 @@
                 {
                     switch (command)
                     {
-                        case 1:
+                        case SpendOneDayCommand:
                             _aquarium.SpendOneDay();
                             break;
 
-                        case 2:
+                        case AddNewFishCommand:
                             _aquarium.AddNewFish();
                             break;
 
-                        case 3:
+                        case RemoveFishCommand:
                             RemoveFish();
                             break;
 
-                        case 4:
+                        case ExitCommand:
                             isWorking = false;
                             break;
 
