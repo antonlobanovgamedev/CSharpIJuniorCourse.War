@@ -67,7 +67,7 @@
             var currectCursorPosition = Console.GetCursorPosition();
             Console.SetCursorPosition(0, topOffset);
 
-            _aquarium.ShowFish();
+            _aquarium.ShowFishes();
 
             Console.SetCursorPosition(currectCursorPosition.Left, currectCursorPosition.Top);
         }

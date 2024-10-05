@@ -2,24 +2,24 @@
 {
     internal class Aquarium
     {
-        private List<Fish> _fish;
+        private List<Fish> _fishes;
 
         public Aquarium()
         {
-            _fish = GenerateFish();
+            _fishes = GenerateFishes();
         }
 
-        public int Count => _fish.Count;
+        public int Count => _fishes.Count;
 
-        public void ShowFish()
+        public void ShowFishes()
         {
-            for (int i = 0; i < _fish.Count; i++)
-                Console.WriteLine($"FISH {i + 1}. IS ALIVE: {_fish[i].IsAlive}. DAYS LEFT: {_fish[i].DaysLeft}.");
+            for (int i = 0; i < _fishes.Count; i++)
+                Console.WriteLine($"FISH {i + 1}. IS ALIVE: {_fishes[i].IsAlive}. DAYS LEFT: {_fishes[i].DaysLeft}.");
         }
 
         public void SpendOneDay()
         {
-            foreach (Fish fish in _fish)
+            foreach (Fish fish in _fishes)
             {
                 fish.LiveOneDay();
             }
@@ -27,14 +27,14 @@
 
         public void RemoveFishAt(int index)
         {
-            if (index >= 0 && index < _fish.Count)
-                _fish.RemoveAt(index);
+            if (index >= 0 && index < _fishes.Count)
+                _fishes.RemoveAt(index);
         }
 
         public void AddNewFish() =>
-            _fish.Add(new Fish());
+            _fishes.Add(new Fish());
 
-        private List<Fish> GenerateFish()
+        private List<Fish> GenerateFishes()
         {
             List<Fish> fish = new List<Fish>();
             int count = 3;
