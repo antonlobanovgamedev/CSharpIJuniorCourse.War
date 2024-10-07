@@ -5,7 +5,9 @@ VisualStudioVersion = 17.11.35303.130
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "War", "War\War.csproj", "{3991B4F6-1C3B-4972-A25C-0A90E50B277F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aquarium", "Aquarium\Aquarium.csproj", "{372811FF-DA9B-40EE-91C0-49668F845084}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Aquarium", "Aquarium\Aquarium.csproj", "{372811FF-DA9B-40EE-91C0-49668F845084}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zoo", "Zoo\Zoo.csproj", "{0084DA57-8B39-4EF4-A2AA-49EE0AE91C71}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{372811FF-DA9B-40EE-91C0-49668F845084}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{372811FF-DA9B-40EE-91C0-49668F845084}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{372811FF-DA9B-40EE-91C0-49668F845084}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0084DA57-8B39-4EF4-A2AA-49EE0AE91C71}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0084DA57-8B39-4EF4-A2AA-49EE0AE91C71}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0084DA57-8B39-4EF4-A2AA-49EE0AE91C71}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0084DA57-8B39-4EF4-A2AA-49EE0AE91C71}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
