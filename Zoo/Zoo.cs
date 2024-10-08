@@ -28,7 +28,7 @@
 
                 if (int.TryParse(userInput, out int result))
                 {
-                    if (result == 0)
+                    if (result == ExitCommand)
                     {
                         isWorking = false;
                     }
@@ -51,7 +51,6 @@
                 Console.ReadKey();
                 Console.Clear();
             }
-
         }
 
         private List<Aviary> GenerateAviaries()
