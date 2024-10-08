@@ -21,7 +21,7 @@
             {
                 ShowAviariesLables();
 
-                Console.WriteLine("\nWrite number of the aviary ('0' to exit):");
+                Console.WriteLine($"\nWrite number of the aviary ('{ExitCommand}' to exit):");
                 Console.Write('>');
 
                 string userInput = Console.ReadLine();
