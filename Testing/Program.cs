@@ -1,17 +1,30 @@
 ﻿namespace Testing
 {
-    public class Program
+    class Program
     {
         static void Main(string[] args)
         {
-            float f = Sum(0.1f, 0.2f);
-            float g = Sum(0.1f, 0.2f);
-            Console.WriteLine(f == g);
+            A a = new B(100);
+            B b = new B(99);
+            b = (B)a;
+            Console.WriteLine(b.Property);
+            Console.WriteLine(b.PropertyInB);
         }
-
-        static float Sum(float f1, float f2)
+    }
+    class A
+    {
+        public A(int property) =>
+            Property = property;
+        public int Property { get; set; }
+    }
+    class B : A
+    {
+        public B(int property) : base(property)
         {
-            return f1 + f2;
+            Property = property;
+            PropertyInB = 25;
         }
+        public int PropertyInB { get; set; }
+        public int Property { get; set; }
     }
 }

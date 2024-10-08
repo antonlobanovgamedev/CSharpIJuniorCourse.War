@@ -3,12 +3,12 @@
     internal class Zoo
     {
         private List<Aviary> _aviaries;
-        private AviaryFactory _aviaryFactory;
+        private AviariesFactory _aviariesFactory;
 
         public Zoo()
         {
-            _aviaryFactory = new AviaryFactory();
-            _aviaries = GenerateAviaries();   
+            _aviariesFactory = new AviariesFactory();
+            _aviaries = _aviariesFactory.GenerateAviaries();   
         }
 
         public void Work()
@@ -51,18 +51,6 @@
                 Console.ReadKey();
                 Console.Clear();
             }
-        }
-
-        private List<Aviary> GenerateAviaries()
-        {
-            List<Aviary> aviaries = new List<Aviary>();
-
-            aviaries.Add(_aviaryFactory.GenerateAviary("Tigers", "Tiger", "ROAR", 1, 3));
-            aviaries.Add(_aviaryFactory.GenerateAviary("Bears", "Bears", "GROWL", 1, 1));
-            aviaries.Add(_aviaryFactory.GenerateAviary("Goats", "Goat", "BLEEH", 4, 4));
-            aviaries.Add(_aviaryFactory.GenerateAviary("Ducks", "Duck", "QUACK", 6, 10));
-
-            return aviaries;
         }
 
         private void ShowAviariesLables()
