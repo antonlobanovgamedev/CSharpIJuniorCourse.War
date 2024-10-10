@@ -7,9 +7,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "War", "War\War.csproj", "{3
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Aquarium", "Aquarium\Aquarium.csproj", "{372811FF-DA9B-40EE-91C0-49668F845084}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zoo", "Zoo\Zoo.csproj", "{0084DA57-8B39-4EF4-A2AA-49EE0AE91C71}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Zoo", "Zoo\Zoo.csproj", "{0084DA57-8B39-4EF4-A2AA-49EE0AE91C71}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Testing", "Testing\Testing.csproj", "{07E7BBA7-6A69-4CE5-B434-7D4B600C6A18}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Testing", "Testing\Testing.csproj", "{07E7BBA7-6A69-4CE5-B434-7D4B600C6A18}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarService", "CarService\CarService.csproj", "{FFF16986-391E-4C50-9AC9-15AB0060293E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{07E7BBA7-6A69-4CE5-B434-7D4B600C6A18}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{07E7BBA7-6A69-4CE5-B434-7D4B600C6A18}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{07E7BBA7-6A69-4CE5-B434-7D4B600C6A18}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FFF16986-391E-4C50-9AC9-15AB0060293E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FFF16986-391E-4C50-9AC9-15AB0060293E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FFF16986-391E-4C50-9AC9-15AB0060293E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FFF16986-391E-4C50-9AC9-15AB0060293E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
